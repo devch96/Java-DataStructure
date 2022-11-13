@@ -2,4 +2,4 @@
 ### MAC ###
 .DS_Store
 ##
-build
+build/
