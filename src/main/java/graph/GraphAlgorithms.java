@@ -1,5 +1,8 @@
 package graph;
 
+import stack.IStack;
+import stack.MyStack;
+
 import java.util.*;
 
 public class GraphAlgorithms {
@@ -19,6 +22,26 @@ public class GraphAlgorithms {
                     visited.add(n);
                 }
             };
+        }
+        return result;
+    }
+
+    public static List<Integer> dfs(IGraph iGraph, int from){
+        List<Integer> result = new ArrayList<>();
+        Set<Integer> visited = new HashSet<>();
+        Stack<Integer> stack = new Stack<>();
+
+        stack.push(from);
+        visited.add(from);
+        while(stack.size()>0){
+            Integer next = stack.pop();
+            result.add(next);
+            for(Integer n : iGraph.getNodes(next)){
+                if (!visited.contains(n)) {
+                    stack.push(n);
+                    visited.add(n);
+                }
+            }
         }
         return result;
     }
